@@ -1,0 +1,25 @@
+sudo: false
+
+language:
+  - cpp
+
+matrix:
+  include:
+    - os: linux
+      compiler: gcc
+      services: docker
+    - os: linux
+      compiler: clang
+      services: docker
+    - os: linux
+      env: CROSS="--cross-file cross/ubuntu-mingw32.txt"
+      services: docker
+
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker pull dcbaker/mesa-demosci ; fi
+
+script:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then echo FROM dcbaker/mesa-demosci > Dockerfile ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then echo ADD . /root >> Dockerfile ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker build -t withgit . ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then docker run withgit /bin/sh -c "cd /root && TRAVIS='true' CC=$CC CXX=$CXX ./mesademos-run-tests.sh $CROSS" ; fi

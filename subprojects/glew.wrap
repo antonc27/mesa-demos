@@ -1,0 +1,12 @@
+[wrap-file]
+directory = glew-2.0.0
+
+source_url = https://sourceforge.net/projects/glew/files/glew/2.0.0/glew-2.0.0.tgz
+source_filename = glew-2.0.0.tgz
+source_hash = c572c30a4e64689c342ba1624130ac98936d7af90c3103f9ce12b8a0c5736764
+
+patch_url = https://people.freedesktop.org/~dbaker/wraps/glew-2.0.0-patch.tar.gz
+patch_filename = glew-2.0.0-patch.tar.gz
+patch_hash = 308d915130a3b6a3f3eb5caf2abbbb911c051540dfdebcb2f18c079f260f76d8
+
+# vim: ft=dosini
