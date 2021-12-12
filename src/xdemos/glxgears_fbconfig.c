@@ -463,7 +463,7 @@ make_window( Display *dpy, const char *name,
    printf("\nThe following fbconfigs meet the requirements.  The first one "
 	  "will be used.\n\n");
    for ( i = 0 ; i < num_configs ; i++ ) {
-      PrintFBConfigInfo(dpy, scrnum, fbconfig[i], GL_TRUE);
+      PrintFBConfigInfo(dpy, scrnum, fbconfig[i], GL_FALSE);
    }
 
    /* window attributes */
@@ -609,7 +609,7 @@ main(int argc, char *argv[])
       return -1;
    }
 
-   make_window(dpy, "glxgears", 0, 0, 300, 300, &win, &glxWin, &ctx);
+   make_window(dpy, "glxgears", 0, 0, 200, 200, &win, &glxWin, &ctx);
    XMapWindow(dpy, win);
    glXMakeCurrent(dpy, glxWin, ctx);
 

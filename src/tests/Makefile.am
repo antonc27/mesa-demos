@@ -173,19 +173,19 @@ endif
 LDADD = ../glad/libglad.la
 afsmultiarb_LDADD = ../util/libutil.la ../glad/libglad.la
 arraytexture_LDADD = ../util/libutil.la ../glad/libglad.la
-auxbuffer_LDADD = ../glad/libglad.la -lX11
+auxbuffer_LDADD = ../glad/libglad.la -lsdl2X11Emulation
 bug_3195_LDADD = ../util/libutil.la ../glad/libglad.la
 bumpmap_LDADD = ../util/libutil.la ../glad/libglad.la
 floattex_LDADD = ../util/libutil.la ../glad/libglad.la
 fillrate_LDADD = ../util/libutil.la ../glad/libglad.la
 invert_LDADD = ../util/libutil.la ../glad/libglad.la
-jkrahntest_LDADD = ../glad/libglad.la -lX11
+jkrahntest_LDADD = ../glad/libglad.la -lsdl2X11Emulation
 linehacks_LDADD = ../util/libutil.la ../glad/libglad.la
 mipmap_limits_LDADD = ../util/libutil.la ../glad/libglad.la
 mipmap_view_LDADD = ../util/libutil.la ../glad/libglad.la
-sharedtex_LDADD = ../glad/libglad.la -lX11
+sharedtex_LDADD = ../glad/libglad.la -lsdl2X11Emulation
 shader_interp_LDADD = ../util/libutil.la ../glad/libglad.la
-texobjshare_LDADD = ../glad/libglad.la -lX11
+texobjshare_LDADD = ../glad/libglad.la -lsdl2X11Emulation
 texrect_LDADD = ../util/libutil.la ../glad/libglad.la
 
 EXTRA_DIST = \

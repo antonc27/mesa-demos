@@ -79,7 +79,7 @@ AddHead(const char *displayName)
    unsigned long mask;
    Window root;
    XVisualInfo *visinfo;
-   int width = 300, height = 300;
+   int width = 200, height = 200;
    int xpos = 10, ypos = 10;
 
    if (NumHeads >= MAX_HEADS)

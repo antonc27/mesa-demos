@@ -46,7 +46,7 @@ static Display *Dpy;
 static XVisualInfo *VisInfo;
 static Window Win;
 static GLXContext Contexts[MAX_CONTEXTS];
-static int WinWidth = 300, WinHeight = 300;
+static int WinWidth = 320, WinHeight = 240;
 
 static int DrawContext = 0, TexContext = 1;
 

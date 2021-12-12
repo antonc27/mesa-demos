@@ -63,7 +63,8 @@ static GLXContext gCtx;
 static Display *gDpy;
 static GLuint Textures[3];
 
-
+#define WINDOW_HEIGHT 100
+#define WINDOW_WIDTH  100
 
 static void
 Error(const char *display, const char *msg)
@@ -118,7 +119,7 @@ AddWindow(Display *dpy, const char *displayName, int xpos, int ypos,
    unsigned long mask;
    Window root;
    XVisualInfo *visinfo;
-   int width = 300, height = 300;
+   int width = WINDOW_WIDTH, height = WINDOW_HEIGHT;
 
    if (NumWindows >= MAX_WINDOWS)
       return NULL;
@@ -472,10 +473,11 @@ main(int argc, char *argv[])
       return -1;
 
    /* four windows and contexts sharing display lists and texture objects */
-   h0 = AddWindow(gDpy, dpyName,  10,  10, gCtx);
-   (void) AddWindow(gDpy, dpyName, 330,  10, gCtx);
-   (void) AddWindow(gDpy, dpyName,  10, 350, gCtx);
-   (void) AddWindow(gDpy, dpyName, 330, 350, gCtx);
+   int offset = 10;
+   h0 = AddWindow(gDpy, dpyName,  offset,  offset, gCtx);
+   (void) AddWindow(gDpy, dpyName, WINDOW_WIDTH + 3*offset,  offset, gCtx);
+   (void) AddWindow(gDpy, dpyName,  offset, WINDOW_HEIGHT + 5*offset, gCtx);
+   (void) AddWindow(gDpy, dpyName, WINDOW_WIDTH + 3*offset, WINDOW_HEIGHT + 5*offset, gCtx);
 
    if (!glXMakeCurrent(gDpy, h0->Win, gCtx)) {
       Error(dpyName, "glXMakeCurrent failed for init thread.");

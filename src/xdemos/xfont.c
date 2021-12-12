@@ -167,6 +167,7 @@ static void event_loop( Display *dpy )
    XEvent event;
 
    while (1) {
+      XFlush(dpy);
       XNextEvent( dpy, &event );
 
       switch (event.type) {
@@ -193,7 +194,7 @@ int main( int argc, char *argv[] )
 
    dpy = XOpenDisplay(NULL);
 
-   win = make_rgb_db_window( dpy, 0, 0, 300, 300 );
+   win = make_rgb_db_window( dpy, 0, 0, 200, 200 );
    setup_font( dpy );
 
    glShadeModel( GL_FLAT );

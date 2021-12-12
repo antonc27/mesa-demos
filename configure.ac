@@ -198,7 +198,15 @@ AC_ARG_ENABLE([x11],
     [x11_enabled="$enableval"],
     [x11_enabled=auto])
 if test "x$x11_enabled" != "xno"; then
-    PKG_CHECK_MODULES(X11, [x11 xext], [x11_enabled=yes], [x11_enabled=no])
+    dnl PKG_CHECK_MODULES(X11, [x11 xext], [x11_enabled=yes], [x11_enabled=no])
+
+    AC_PATH_XTRA
+
+    if test "$have_x" = "yes"; then
+        x11_enabled=yes
+        X_LIBS="$X_LIBS -lsdl2X11Emulation"
+        X11_LIBS="$X11_LIBS -lsdl2X11Emulation"
+    fi
 fi
 
 AC_ARG_ENABLE([wayland],

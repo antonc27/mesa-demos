@@ -54,7 +54,6 @@ bin_PROGRAMS = \
 	overlay \
 	pbinfo \
 	pbdemo \
-	shape \
 	sharedtex \
         sharedtex_mt \
 	texture_from_pixmap \
